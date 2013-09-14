@@ -1,0 +1,10 @@
+#!/bin/bash
+
+getDate() {
+	echo -en "\x01`date +'%a %k:%M %d/%b/%Y'`"
+}
+
+while true; do
+	xsetroot -name "$(getDate)"
+	sleep 1
+done
