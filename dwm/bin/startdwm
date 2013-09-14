@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DIR='/home/xluffy/workplace/dwm/bin'
+$DIR/status &
+dwm 2> $DIR/../dwm.log
