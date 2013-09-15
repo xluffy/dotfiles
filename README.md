@@ -1,7 +1,8 @@
-__config my system__
-- openbox
-- tint2
+__Config my system__
+- dwm
+- mplayer2
 - bashrc
 - mpd
 - vim
 - xinitrc
+- ranger
