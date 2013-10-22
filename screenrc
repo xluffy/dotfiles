@@ -1,0 +1,32 @@
+## Turn off the  Startup Message ##
+startup_message off
+####
+
+## Enable scroll back using Shift +PageUp (PageDown)##
+defscrollback 10000
+####
+
+caption always "%{=b dy}%D, %d. %M '%y %{=b dw}%c:%s %{=b dy}{ %{= dg}${USER}@%{= dr}%H %{=b dy}} %{=b d2}%l %{=b dy}%u %{=b dy} %={ %?%{= dc}%-Lw%?%{+b dy}(%{-b r}%n:%t%{+b dy})%?(%u)%?%{-dc}%?%{= dc}%+Lw%? %{=b dy}}"
+
+
+#shelltitle $
+#hardstatus alwayslastline
+#hardstatus string "%{= kG}[%{G}%H%{g}][%{= kw}%-w%{= BW}%n %t%{-}%+w %-= %{g}][%{c}%c%{g}]"
+
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+screen 1
+
+bindkey -k k1 select 1
+bindkey -k k2 select 2
+bindkey -k k3 select 3
+bindkey -k k4 select 4
+bindkey -k k5 select 5
+bindkey -k k6 select 6
+bindkey -k k7 select 7
+bindkey -k k8 select 8
+bindkey -k k9 select 9
+bindkey -k k; select 10
+bindkey -k F1 prev
+bindkey -k F2 next
