@@ -16,23 +16,41 @@ export QT_IM_MODULE='uim'
 uim-xim &
 export XMODIFIERS='@im=uim'
 
-#uim-toolbar-gtk-systray &
-
-#ibus-daemon --xim -d
-/usr/bin/xscreensaver -no-splash &
 xset +fp /usr/share/fonts/local
 xset fp rehash
-#exec openbox-session
 
-#while true; do
-#   xsetroot -name "$(date +"%F %R")"
-#   sleep 1m    # Update time every minute
-#done &
-#exec dwm
+#xscreensaver &
 
-#conky
-#(conky | dzen2 -x '1100' -e '' -fg '#66a9ba' -bg '#000000' -w '720' -h '15' -ta r -fn '-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*' -p )&
+# while true; do
+#     # Log stderror to a file 
+#     dwm 2> ~/.dwm.log
+#     # No error logging
+#     #dwm >/dev/null 2>&1
+# done
 
-nitrogen --restore &
+while true; do
 
-/home/xluffy/workplace/dwm/bin/startdwm
+# Power/Battery Status
+if [ "$( cat /sys/class/power_supply/AC0/online )" -eq "1" ]; then
+        DWM_BATTERY="AC";
+        DWM_RENEW_INT=3;
+else
+        DWM_BATTERY=$(( `cat /sys/class/power_supply/BAT0/energy_now` * 100 / `cat /sys/class/power_supply/BAT0/energy_full` ));
+        DWM_RENEW_INT=30;
+fi;
+
+# Volume Level
+#DWM_VOL=$( amixer -c1 sget Master | awk -vORS=' ' '/Mono:/ {print($6$4)}' );
+
+# Date and Time
+DWM_CLOCK=$( date '+%e %b %Y %a | %k:%M' );
+
+# Overall output command
+DWM_STATUS="Power: [$DWM_BATTERY] | $DWM_CLOCK";
+xsetroot -name "$DWM_STATUS";
+sleep $DWM_REFRESH_INT;
+
+done &
+
+exec enlightenment_start
+#exec /home/xquang/linux/xdwm

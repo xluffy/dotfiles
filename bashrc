@@ -4,12 +4,15 @@
 #
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+#[[ $- != *i* ]] && return
+#[[ -z "$TMUX" ]] && exec tmux
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-cowsay "Welcome to sunshine @_@"
+cowsay "Welcome to freeX"
+
+#cmatrix -B
 
 Black='\e[0;30m' # Black
 Red='\e[0;31m' # Red
@@ -20,9 +23,10 @@ Purple='\e[0;35m' # Purple
 Cyan='\e[0;36m' # Cyan
 White='\e[0;37m' # White
 
-#export PS1='\[\e[1;36m\][\[\e[m\]\[\e[1;31m\]\u\[\e[m\]\[\e[1;36m\] @\[\e[m\] \[\e[1;32m\]\h\[\e[m\] \[\e[1;33m\]\w\[\e[m\]\[\e[1;36m\]]\[\e[m\] '
-#export PS1='\[\e[1;31m\].:\[\e[1;34m\]\u@\h\[\e[1;31m\]:. \[\e[1;32m\][\W]\[\e[1;32m\]\[\e[0m\] '
-export PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] at \[\e[0;31m\]\h\[\e[0;37m\]:\[\e[0;34m\]\w\n\[\e[0;32m\]\$\[\e[0m\] '
+export PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;31m\]\h\[\e[0;37m\] [\w\[\e[0;32m\]]\[\e[0m\]\n\$\[\e[0m\] '
+export EDITOR=vim
+
+PATH=$PATH:/home/xquang/bin
 
 # modified commands
 alias grep='grep --color=auto'
@@ -32,6 +36,8 @@ alias du='du -c -h'
 alias ping='ping -c 5'
 alias pong='ping google.com.vn'
 alias ping1='ping 192.168.1.1'
+alias ping2='ping 192.168.1.201'
+alias dualscreen='xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1'
 
 # New commands
 alias date='date "+%A, %B %d, %Y [%T]"'
@@ -61,10 +67,12 @@ alias mixer='alsamixer'
 alias vi='vim'
 alias goodnight='sudo shutdown -h +45'
 alias xinit='xinit &> ~/.xlog'
-alias wifi='sudo wifi-menu wlp4s0'
-alias mplayer='mplayer --msgcolor'
+alias ww='sudo wifi-menu wf0'
+alias wPublic='sudo mount.cifs //10.100.0.22/public wPublic/ -o user=quang.nguyen'
+alias time='sudo ntpdate pool.ntp.org'
+alias mplayer='mplayer -msgcolor'
 #
-export BROWSER="firefox"
+export BROWSER="chromium"
 
 ## EXTRACT FUNCTION ##
 giainen () {
@@ -87,3 +95,5 @@ else
 echo "'$1' is not a valid file!"
   fi
 }
+
+export GOPATH=$HOME/go
