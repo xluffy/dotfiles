@@ -68,7 +68,6 @@ alias vi='vim'
 alias goodnight='sudo shutdown -h +45'
 alias xinit='xinit &> ~/.xlog'
 alias ww='sudo wifi-menu wf0'
-alias wPublic='sudo mount.cifs //10.100.0.22/public wPublic/ -o user=quang.nguyen'
 alias time='sudo ntpdate pool.ntp.org'
 alias mplayer='mplayer -msgcolor'
 #
