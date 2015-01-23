@@ -10,7 +10,7 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-cowsay "Welcome to freeX"
+cowsay "Welcome to sunshine ┏( ^o^)┛"
 
 #cmatrix -B
 
