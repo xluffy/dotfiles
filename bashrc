@@ -1,4 +1,3 @@
-
 #
 # ~/.bashrc
 #
@@ -25,6 +24,7 @@ White='\e[0;37m' # White
 
 export PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;31m\]\h\[\e[0;37m\] [\w\[\e[0;32m\]]\[\e[0m\]\n\$\[\e[0m\] '
 export EDITOR=vim
+export GOPATH=$HOME/go
 
 PATH=$PATH:/home/xquang/bin
 
@@ -94,5 +94,3 @@ else
 echo "'$1' is not a valid file!"
   fi
 }
-
-export GOPATH=$HOME/go
