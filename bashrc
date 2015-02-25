@@ -52,6 +52,9 @@ fi
 # ls
 alias ls='ls -hF --color=auto'
 alias ll='ls -l'
+alias ll='ls -l'
+alias l='ls -l'
+alias lll='ls -l'
 
 # auto-completion
 complete -cf sudo
@@ -75,7 +78,7 @@ export BROWSER="chromium"
 
 ## EXTRACT FUNCTION ##
 giainen () {
-  if [ -f $1 ] ; then
+if [ -f $1 ] ; then
 case $1 in
           *.tar.bz2) tar xvjf $1 ;;
           *.tar.gz) tar xvzf $1 ;;
