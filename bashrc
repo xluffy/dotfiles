@@ -35,9 +35,8 @@ alias df='df -h | tail -n 8 | sort'
 alias du='du -c -h'
 alias ping='ping -c 5'
 alias pong='ping google.com.vn'
-alias ping1='ping 192.168.1.1'
-alias ping2='ping 192.168.1.201'
 alias dualscreen='xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1'
+alias p='curl httpbin.org/ip'
 
 # New commands
 alias date='date "+%A, %B %d, %Y [%T]"'
