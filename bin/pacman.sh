@@ -19,7 +19,7 @@ xorg-xhost xorg-xinit xorg-xinput xorg-xkbcomp xorg-xmodmap xorg-xrandr xorg-xrd
 xorg-xrefresh xorg-xset xorg-xsetroot xscreensaver xz yaourt zathura zathura-djvu \
 zathura-pdf-poppler zip'
 
-for pk in ${pks[@]}; do
-	printf "Install $pk ... \n"
+for pk in "${pks[@]}"; do
+	echo "Install $pk ..."
 	$SUDO $PM -S "$pk" || break
 done
