@@ -5,7 +5,7 @@
 ## License: 
 
 _USER='xquang'
-_FILES=('bashrc' 'mpd.conf' 'tmux.conf' 'vimrc' 'xinitrc')
+_FILES=('bashrc' 'mpd.conf' 'tmux.conf' 'vimrc' 'xinitrc' 'gitconfig')
 _DIR=('vim' 'mplayer' 'e')
 _HOME='/home/'"$_USER"'/tmp/'
 RS=$(which rsync)

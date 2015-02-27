@@ -1,0 +1,42 @@
+[user]
+name = xluffy
+email = xquang.foss@gmail.com
+
+[color]
+branch = auto
+diff = auto
+status = auto
+
+[alias]
+pu = push
+pl = pull
+ci = commit
+di = diff --color-words
+st = status -uno
+stt = status
+co = checkout
+br = branch
+lg = log -p
+logf = log --follow
+lol = log --graph --decorate --pretty=oneline --abbrev-commit
+lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+ls = ls-files
+mg = merge
+
+[color "branch"]
+current = yellow
+local = magenta
+remote = cyan
+
+[color "diff"]
+meta = yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
+
+[color "status"]
+added = yellow
+changed = green
+untracked = cyan
+[push]
+default = matching
