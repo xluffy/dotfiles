@@ -18,7 +18,6 @@ set nowrap                              " don't wrap lines
 set nobackup                            " disable backup files (filename~)
 set splitbelow                          " place new files below the current
 set showmatch                           " matching brackets & the like
-set clipboard+=unnamed                  " yank and copy to X clipboard
 set encoding=utf-8                      " UTF-8 encoding for all new files
 set backspace=2                         " full backspacing capabilities (indent,eol,start)
 set scrolloff=10                        " keep 10 lines of context
@@ -30,18 +29,16 @@ set wildmode=list:longest,full          " full completion options
 set spelllang=en_gb                     " real English spelling
 set dictionary+=/usr/share/dict/words   " use standard dictionary
 set spellfile=$HOME/Sync/vim/spell/en.utf-8.add
+set textwidth=79
 
 let g:is_posix=1                        " POSIX shell scripts
 let g:loaded_matchparen=1               " disable parenthesis hlight plugin
 let g:is_bash=1                         " bash syntax the default for hlighting
 let g:vimsyn_noerror=1                  " hack for correct syntax hlighting
 
-" printer
-set pdev=L7-HP4250
-
 " tabs and indenting
-set tabstop=4                           " tabs appear as n number of columns
-set shiftwidth=4                        " n cols for auto-indenting
+set tabstop=2                           " tabs appear as n number of columns
+set shiftwidth=2                        " n cols for auto-indenting
 set expandtab                           " spaces instead of tabs
 set autoindent                          " auto indents next new line
 
