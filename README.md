@@ -1,4 +1,8 @@
-__Config my system__
+dotfiles
+========
+
+### Config
+
 - dwm
 - mplayer2
 - bashrc
@@ -6,3 +10,12 @@ __Config my system__
 - vim
 - xinitrc
 - ranger
+
+### Script
+
+- dotfiles.sh
+- pacman.sh 
+
+### Tools
+
+[storm](https://github.com/emre/storm)
