@@ -18,4 +18,4 @@ dotfiles
 
 ### Tools
 
-[storm](https://github.com/emre/storm)
+- [storm](https://github.com/emre/storm)
