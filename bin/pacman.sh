@@ -12,3 +12,6 @@ for pk in ${pks[@]}; do
 	echo "Install $pk ..."
 	$SUDO $PM -S "$pk" --noconfirm || continue
 done
+
+wget -O /usr/local/bin/git-cheat https://raw.githubusercontent.com/0xAX/git-cheat/master/git-cheat
+chmod 755 usr/local/bin/git-cheat
