@@ -22,18 +22,21 @@ Purple='\e[0;35m' # Purple
 Cyan='\e[0;36m' # Cyan
 White='\e[0;37m' # White
 
-#PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;31m\]\h\[\e[0;37m\] [\w\[\e[0;32m\]]\[\e[0m\]\n\$\[\e[0m\] '
-
-# Local
-PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;34m\]\h\[\e[0;37m\] [\[\e[0;32m\]\w\[\e[0;39m\]]\n\[\e[0m\]\$\[\e[m\] '
-
-#Server
-#PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;34m\]\h\[\e[0;37m\] [\[\e[0;32m\]\w\[\e[0;39m\]] \[\e[0m\]\$\[\e[m\] '
+if [ $UID != 0 ]; then
+  PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;32m\]\u\[\e[0;37m\] -at- \[\e[0;34m\]\h\[\e[0;37m\] [\[\e[0;32m\]\w\[\e[0;39m\]]\n\[\e[0;32m\]\$\[\e[m\] '
+else
+  PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;34m\]\h\[\e[0;37m\] [\[\e[0;32m\]\w\[\e[0;39m\]]\n\[\e[0;31m\]\$\[\e[m\] '
+fi
 
 EDITOR=vim
-GOPATH=$HOME/go
-
 PATH=$PATH:/home/xquang/bin:/home/xquang/.gem/ruby/2.2.0/bin
+
+export GOPATH=~/go
+export PATH=$PATH:~/go/bin
+
+export HISTTIMEFORMAT="%F %T "
+export HISTSIZE=999999
+export HISTFILESIZE=999999999
 
 # modified commands
 alias grep='grep --color=auto'
@@ -77,7 +80,7 @@ alias vi='vim'
 alias goodnight='sudo shutdown -h +45'
 alias xinit='xinit &> ~/.xlog'
 alias ww='sudo wifi-menu wf0'
-alias time='sudo ntpdate pool.ntp.org'
+alias times='sudo ntpdate pool.ntp.org'
 alias mplayer='mplayer -msgcolor'
 alias r='openssl rand -base64 15'
 #
