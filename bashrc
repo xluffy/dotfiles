@@ -34,10 +34,6 @@ PATH=$PATH:/home/xquang/bin:/home/xquang/.gem/ruby/2.2.0/bin
 export GOPATH=~/go
 export PATH=$PATH:~/go/bin
 
-export HISTTIMEFORMAT="%F %T "
-export HISTSIZE=999999
-export HISTFILESIZE=999999999
-
 # modified commands
 alias grep='grep --color=auto'
 alias more='less'
@@ -107,3 +103,17 @@ else
   echo "'$1' is not a valid file!"
 fi
 }
+
+# add this configuration to ~/.bashrc
+export HH_CONFIG=hicolor
+shopt -s histappend
+export HISTCONTROL=ignorespace
+export HISTTIMEFORMAT="%F %T "                                                                                                                                        
+export HISTSIZE=999999
+export HISTFILESIZE=999999999
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+
+if [[ $- =~ .*i.* ]]; then 
+  bind '"\C-r": "\C-a hh \C-j"';
+fi
+
