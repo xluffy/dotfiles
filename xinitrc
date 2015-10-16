@@ -32,11 +32,11 @@ while true; do
 
 # Power/Battery Status
 if [ "$( cat /sys/class/power_supply/AC0/online )" -eq "1" ]; then
-        DWM_BATTERY="AC";
-        DWM_RENEW_INT=3;
+  DWM_BATTERY="AC";
+  DWM_RENEW_INT=3;
 else
-        DWM_BATTERY=$(( `cat /sys/class/power_supply/BAT0/energy_now` * 100 / `cat /sys/class/power_supply/BAT0/energy_full` ));
-        DWM_RENEW_INT=30;
+  DWM_BATTERY=$(( `cat /sys/class/power_supply/BAT0/energy_now` * 100 / `cat /sys/class/power_supply/BAT0/energy_full` ));
+  DWM_RENEW_INT=30;
 fi;
 
 # Volume Level

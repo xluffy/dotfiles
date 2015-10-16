@@ -1,5 +1,13 @@
 #!/bin/bash
+#
+# ~/bin/dwm-start
+#
 
-DIR='/home/xluffy/workplace/dwm/bin'
-$DIR/status &
-dwm 2> $DIR/../dwm.log
+$HOME/bin/statusbar &
+
+while true; do
+  # Log stderror to a file
+  dwm 2>  $HOME/.dwm.log
+  # No error logging
+  #dwm >/dev/null 2>&1
+done
