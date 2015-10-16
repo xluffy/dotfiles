@@ -1,21 +1,21 @@
 dotfiles
 ========
 
-### Config
+Config
 
 - dwm
-- mplayer2
+- e
 - bashrc
-- mpd
+- tmux
 - vim
 - xinitrc
 - ranger
 
-### Script
+Script
 
-- dotfiles.sh
 - pacman.sh 
 
-### Tools
+
+Tools
 
 - [storm](https://github.com/emre/storm)
