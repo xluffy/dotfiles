@@ -18,4 +18,4 @@ Script
 
 Tools
 
-- [storm](https://github.com/emre/storm)
+- https://github.com/emre/storm
