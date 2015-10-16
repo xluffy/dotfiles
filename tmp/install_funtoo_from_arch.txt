@@ -87,8 +87,6 @@ search a package
 
 # emarge -s vim
 
-
-
 Ref
 
 - http://www.funtoo.org/Installation_(Tutorial)
