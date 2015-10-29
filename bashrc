@@ -9,7 +9,7 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-#cowsay "Welcome to sunshine ┏( ^o^)┛"
+cowsay "Welcome to sunshine ┏( ^o^)┛"
 
 #cmatrix -B
 
@@ -41,8 +41,16 @@ alias df='df -h | tail -n 8 | sort'
 alias du='du -sch'
 alias ping='ping -c 5'
 alias pong='ping google.com.vn'
-alias dualscreen='xrandr --output LVDS1 --auto --output VGA1 --auto --right-of LVDS1'
 alias p='curl httpbin.org/ip'
+alias pv='pv -peafbt'
+
+# Comment of PV
+# - p: progress bar
+# - e: enable eta time, how long it will be beforce completion
+# - a: Turn the average rate counter on.
+# - f: Force output.
+# - b: Display the total amount of data transferred so far.
+# - t: Display the total elapsed time that pv has been running for.
 
 # New commands
 alias date='date "+%A, %B %d, %Y [%T]"'
@@ -105,15 +113,6 @@ fi
 }
 
 # add this configuration to ~/.bashrc
-export HH_CONFIG=hicolor
-shopt -s histappend
-export HISTCONTROL=ignorespace
 export HISTTIMEFORMAT="%F %T "                                                                                                                                        
 export HISTSIZE=999999
 export HISTFILESIZE=999999999
-export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
-
-if [[ $- =~ .*i.* ]]; then 
-  bind '"\C-r": "\C-a hh \C-j"';
-fi
-
