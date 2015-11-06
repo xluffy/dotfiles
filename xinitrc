@@ -21,36 +21,4 @@ xset fp rehash
 
 #xscreensaver &
 
-# while true; do
-#     # Log stderror to a file 
-#     dwm 2> ~/.dwm.log
-#     # No error logging
-#     #dwm >/dev/null 2>&1
-# done
-
-while true; do
-
-# Power/Battery Status
-if [ "$( cat /sys/class/power_supply/AC0/online )" -eq "1" ]; then
-  DWM_BATTERY="AC";
-  DWM_RENEW_INT=3;
-else
-  DWM_BATTERY=$(( `cat /sys/class/power_supply/BAT0/energy_now` * 100 / `cat /sys/class/power_supply/BAT0/energy_full` ));
-  DWM_RENEW_INT=30;
-fi;
-
-# Volume Level
-#DWM_VOL=$( amixer -c1 sget Master | awk -vORS=' ' '/Mono:/ {print($6$4)}' );
-
-# Date and Time
-DWM_CLOCK=$( date '+%e %b %Y %a | %k:%M' );
-
-# Overall output command
-DWM_STATUS="Power: [$DWM_BATTERY] | $DWM_CLOCK";
-xsetroot -name "$DWM_STATUS";
-sleep $DWM_REFRESH_INT;
-
-done &
-
 exec enlightenment_start
-#exec /home/xquang/linux/xdwm
