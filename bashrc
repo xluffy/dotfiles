@@ -28,7 +28,6 @@ else
   PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;34m\]\h\[\e[0;37m\] [\[\e[0;32m\]\w\[\e[0;39m\]]\n\[\e[0;31m\]\$\[\e[m\] '
 fi
 
-EDITOR=vim
 PATH=$PATH:/home/xquang/bin:/home/xquang/.gem/ruby/2.2.0/bin
 
 export GOPATH=~/go
@@ -89,6 +88,7 @@ alias mplayer='mplayer -msgcolor'
 alias r='openssl rand -base64 15'
 #
 export BROWSER="chromium"
+export EDITOR="vim"
 
 ## EXTRACT FUNCTION ##
 giainen () {
