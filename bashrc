@@ -3,8 +3,8 @@
 #
 
 # If not running interactively, don't do anything
-#[[ $- != *i* ]] && return
-#[[ -z "$TMUX" ]] && exec tmux
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
@@ -28,10 +28,12 @@ else
   PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;34m\]\h\[\e[0;37m\] [\[\e[0;32m\]\w\[\e[0;39m\]]\n\[\e[0;31m\]\$\[\e[m\] '
 fi
 
-PATH=$PATH:/home/xquang/bin:/home/xquang/.gem/ruby/2.2.0/bin
+export PATH=$PATH:/home/xluffy/bin:/home/xluffy/.gem/ruby/2.2.0/bin:/home/xluffy/go/bin
+
+export PATH=$PATH:/home/xluffy/5ource/jdk1.8.0_77/bin
+export JAVA_HOME=/home/xluffy/5ource/jdk1.8.0_77
 
 export GOPATH=~/go
-export PATH=$PATH:~/go/bin
 
 # modified commands
 alias grep='grep --color=auto'
@@ -56,10 +58,10 @@ alias date='date "+%A, %B %d, %Y [%T]"'
 
 # privileged access
 if [ $UID -ne 0 ]; then
-alias sudo='sudo '
-alias reboot='sudo reboot'
-alias halt='sudo halt'
-alias pm-suspend='sudo pm-suspend'
+  alias sudo='sudo '
+  alias reboot='sudo reboot'
+  alias halt='sudo halt'
+  alias pm-suspend='sudo pm-suspend'
 fi
 
 # ls
@@ -77,16 +79,15 @@ alias pacman='sudo pacman'
 alias yaourt='sudo yaourt'
 
 # take a picture
-alias takepic='scrot -d 10 -c ~/.screenshot/%Y_%m_%d_%T-screenshot.png'
 alias mixer='alsamixer'
 alias vi='vim'
 alias goodnight='sudo shutdown -h +45'
 alias xinit='xinit &> ~/.xlog'
 alias ww='sudo wifi-menu wf0'
 alias times='sudo ntpdate pool.ntp.org'
-alias mplayer='mplayer -msgcolor'
 alias r='openssl rand -base64 15'
-#
+
+# Default program
 export BROWSER="chromium"
 export EDITOR="vim"
 
