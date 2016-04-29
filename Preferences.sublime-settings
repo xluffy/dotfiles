@@ -15,6 +15,6 @@
 	"phoenix_tabs_small": true,
 	"tab_size": 2,
 	"theme": "Phoenix Dark.sublime-theme",
-	"translate_tabs_to_spaces": false,
+	"translate_tabs_to_spaces": true,
   "fold_buttons": false
 }
