@@ -61,13 +61,14 @@ call vundle#begin()
   Plugin 'rking/ag.vim'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 map <C-n> :NERDTreeToggle<CR>
 
 let g:airline_theme='molokai'
-let g:airline_powerline_fonts = 1
 
 " map leader
 :nnoremap <leader>d dd
 :nnoremap <leader>g gg
+:nnoremap <leader>o :CtrlP<CR>
