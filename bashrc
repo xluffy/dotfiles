@@ -3,11 +3,8 @@
 #
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
-
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+#[[ $- != *i* ]] && return
+#[[ -z "$TMUX" ]] && exec tmux
 
 cowsay "Welcome to sunshine ┏( ^o^)┛"
 
@@ -28,7 +25,10 @@ else
   PS1='\[\e[0;32m\]:: \[\e[0;37m\]You are \[\e[0;31m\]\u\[\e[0;37m\] -at- \[\e[0;34m\]\h\[\e[0;37m\] [\[\e[0;32m\]\w\[\e[0;39m\]]\n\[\e[0;31m\]\$\[\e[m\] '
 fi
 
-export PATH=$PATH:/home/xluffy/bin:/home/xluffy/.gem/ruby/2.2.0/bin:/home/xluffy/go/bin
+export PATH=$PATH:/home/xluffy/bin:/home/xluffy/.gem/ruby/2.3.0/bin:/home/xluffy/go/bin
+
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem/ruby/2.3.0
 
 export PATH=$PATH:/home/xluffy/5ource/jdk1.8.0_77/bin
 export JAVA_HOME=/home/xluffy/5ource/jdk1.8.0_77
@@ -117,3 +117,15 @@ fi
 export HISTTIMEFORMAT="%F %T "                                                                                                                                        
 export HISTSIZE=999999
 export HISTFILESIZE=999999999
+
+docker_base() {
+  docker run --name "$1" -it -v ~/tmp:/root/tmp xluffy/base:6 /bin/bash
+}
+
+docker_ip() {
+  docker inspect --format='{{.NetworkSettings.IPAddress}}' "$1"
+}
+
+docker_clean_container() {
+  docker rm -f $(docker ps -qa)
+}
