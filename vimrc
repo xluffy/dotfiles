@@ -1,4 +1,6 @@
 "vim config by @xluffy
+" Leader
+let mapleader = " "
 
 syntax on
 filetype plugin on
@@ -14,9 +16,10 @@ set nobackup
 set encoding=utf-8
 set scrolloff=10
 set backspace=2
-set textwidth=79
 set laststatus=2
 set t_Co=256
+set showcmd
+set autowrite
 
 " tabs and indenting
 set tabstop=2
@@ -29,6 +32,14 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+" Make it obvious where 80 characters is
+set textwidth=79
+set colorcolumn=+1
+
+" Numbers
+set number
+set numberwidth=1
 
 " Make these commonly mistyped commands still work
 command! WQ wq
@@ -56,3 +67,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 let g:airline_theme='molokai'
 let g:airline_powerline_fonts = 1
+
+" map leader
+:nnoremap <leader>d dd
+:nnoremap <leader>g gg
