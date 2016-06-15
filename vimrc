@@ -34,7 +34,7 @@ set ignorecase
 set smartcase
 
 " Make it obvious where 80 characters is
-set textwidth=79
+set textwidth=95
 set colorcolumn=+1
 
 " Numbers
@@ -58,17 +58,49 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'scrooloose/nerdTree'
+  Plugin 'scrooloose/nerdcommenter'
   Plugin 'rking/ag.vim'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'itchyny/lightline.vim'
+  " Plugin 'vim-airline/vim-airline'
+  " Plugin 'vim-airline/vim-airline-themes'
   Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 map <C-n> :NERDTreeToggle<CR>
 
-let g:airline_theme='molokai'
+" let g:airline_theme='molokai'
+
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"x":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
 
 " map leader
 :nnoremap <leader>d dd
 :nnoremap <leader>g gg
 :nnoremap <leader>o :CtrlP<CR>
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
