@@ -6,6 +6,9 @@
 "maim -s ~/screenshot/$(date +%F-%T).png"
     m:0x1 + c:107
     Shift + Print
+"urxvt"
+    m:0x1c + c:36
+    Control+Alt+Mod2 + Return
 
 # specify a mouse button
 "terminology"
