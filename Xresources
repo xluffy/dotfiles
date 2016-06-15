@@ -1,33 +1,32 @@
-! terminal colours
-*foreground:#a5a5a5
-*background:#000000
 
-!molokai inspired colors
+! tangoesque scheme
+*background:  #000000
+*foreground:  #aaaaaa
+! Black
+*color0:      #202020
+*color8:      #606060
+! Red
+*color1:      #ff6565
+*color9:      #ff8d8d
+! Green
+*color2:      #93d44f
+*color10:     #c8e7a8
+! Yellow
+*color3:      #eab93d
+*color11:     #ffc123
+! Blue
+*color4:      #204a87
+*color12:     #3465a4
+! Mangenta
+*color5:      #ce5c00
+*color13:     #f57900
+! Cyan 
+*color6:      #89b6e2
+*color14:     #46a4ff
+! White
+*color7:      #cccccc
+*color15:     #ffffff
 
-!black
-*color0:    #1b1d1e
-*color8:    #505354
-!red
-*color1:    #f92672
-*color9:    #ff5995
-!green
-*color2:    #82b414
-*color10:   #b6e354
-!yellow
-*color3:    #fd971f
-*color11:   #feed6c
-!blue
-*color4:    #56c2d6
-*color12:   #8cedff
-!magenta
-*color5:    #8c54fe
-*color13:   #9e6ffe
-!cyan
-*color6:    #465457
-*color14:   #899ca1
-!white
-*color7:    #ccccc6
-*color15:   #f8f8f2
 
 *font: xft:Consolas-10:book:autohint=true:hinting=true
 *boldFont: xft:Consolas-10:book:autohint=true:hinting=true
