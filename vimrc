@@ -64,6 +64,8 @@ call vundle#begin()
   " Plugin 'vim-airline/vim-airline'
   " Plugin 'vim-airline/vim-airline-themes'
   Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'fatih/vim-go'
+  Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -104,3 +106,14 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif  
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
