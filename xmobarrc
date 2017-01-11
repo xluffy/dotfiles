@@ -1,51 +1,60 @@
 Config { font = "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*"
-       , bgColor = "black"
-       , fgColor = "grey"
-       , position = Bottom
-       , lowerOnStart = True
-       , commands = [ Run MultiCpu
-                          [ "-a", "l"
-                          , "-w", "4"
-                          , "-t", "<fc=#8888FF>CPU0:</fc> <total0> <fc=#555555>|</fc> <fc=#8888FF>CPU1:</fc> <total1>"
-                          , "-L", "50"
-                          , "-H", "75"
-                          , "-l", "green"
-                          , "-n", "yellow"
-                          , "-h", "red"
-                          ] 10
-                    , Run Memory 
-                          [ "-a", "l"
-                          , "-w", "4"
-                          , "-t", "<fc=#8888FF>MEM:</fc> <usedratio>"
-                          , "-L", "50"
-                          , "-H", "75"
-                          , "-l", "green"
-                          , "-n", "yellow"
-                          , "-h", "red"
-                          ] 10
-                    , Run Wireless "wlan0" 
-                          [ "-a", "l"
-                          , "-w", "4"
-                          , "-t", "<fc=#8888FF>WLAN:</fc> <essid> <quality>"
-                          , "-L", "50"
-                          , "-H", "75"
-                          , "-l", "red"
-                          , "-n", "yellow"
-                          , "-h", "green"
-                          ] 10
-                    , Run Battery 
-                          [ "-a", "l"
-                          , "-w", "4"
-                          , "-t", "<fc=#8888FF>BAT:</fc> <left> <status>"
-                          , "-L", "25"
-                          , "-H", "50"
-                          , "-l", "red"
-                          , "-n", "yellow"
-                          , "-h", "green"
-                          ] 10
-                    , Run Date "%a %b %_d, %H:%M" "date" 10
-                    ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = "}{ %multicpu% <fc=#555555>|</fc> %memory% <fc=#555555>|</fc> %wlan0wi% <fc=#555555>|</fc> %battery% <fc=#555555>|</fc> %volume% <fc=#555555>|</fc> %date% "
-       }
+    , additionalFonts = []
+    , borderColor = "black"
+    , border = TopB
+    , alpha = 255
+    , iconRoot = "."
+    , textOffset = -1
+    , iconOffset = -1
+    , bgColor = "black"
+    , fgColor = "grey"
+    , position = Bottom
+    , lowerOnStart = True
+    , pickBroadest = False
+    , persistent = False
+    , hideOnStart = False
+    , allDesktops = True
+    , overrideRedirect = True
+    , commands = [
+                    Run Memory 
+                        [ "-a", "l"
+                        , "-w", "4"
+                        , "-t", "<fc=#8888FF>MEM:</fc><usedratio>%"
+                        , "-L", "50"
+                        , "-H", "75"
+                        , "-l", "green"
+                        , "-n", "yellow"
+                        , "-h", "red"
+                        ] 10
+                    , Run Cpu 
+                        [ "-L","3","-H","50"
+                        , "--normal","green","--high","red"
+                        ] 10
+                    , Run Wireless "wf0" 
+                        [ "-a", "l"
+                        , "-w", "4"
+                        , "-t", "<fc=#8888FF>WLAN:</fc><essid> <quality>%"
+                        , "-L", "50"
+                        , "-H", "75"
+                        , "-l", "red"
+                        , "-n", "yellow"
+                        , "-h", "green"
+                        ] 10
+                    , Run BatteryP ["BAT0"]
+                        ["-t", "<acstatus><left>%"
+                        , "-L", "10", "-H", "80", "-p", "3"
+                        , "--", "-O", "<fc=green>On</fc> -", "-i", ""
+                        , "-L", "-15", "-H", "-5"
+                        , "-l", "red", "-m", "blue", "-h", "green"
+                        ] 10
+                    , Run CoreTemp
+                        [ "-t", "Temp:<core0>|<core1>C"
+                        , "-L", "40", "-H", "60"
+                        , "-l", "lightblue", "-n", "gray90", "-h", "red"
+                        ] 50
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                 ]
+    , sepChar = "%"
+    , alignSep = "}{"
+    , template = "}{ %cpu% <fc=#555555>|</fc> %coretemp% <fc=#555555>|</fc> %memory% <fc=#555555>|</fc> %wf0wi% <fc=#555555>|</fc> %battery% <fc=#555555>|</fc> %date% "
+   }
