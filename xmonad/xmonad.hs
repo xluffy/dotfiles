@@ -20,7 +20,7 @@ main = do
       ((mod4Mask, xK_Left), prevWS)
     , ((mod4Mask, xK_Right), nextWS)
     , ((mod4Mask, xK_Return), spawn "urxvt")
-    , ((mod4Mask, xK_space), spawn "dmenu_run -b")
+    , ((mod4Mask, xK_space), spawn "dmenu_run -f")
     , ((mod4Mask, xK_q), spawn "xmonad --recompile; xmonad --restart")
     , ((0, xF86XK_AudioLowerVolume   ), spawn "amixer set Master 2-")
   	, ((0, xF86XK_AudioRaiseVolume   ), spawn "amixer set Master 2+")
