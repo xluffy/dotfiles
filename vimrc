@@ -12,7 +12,7 @@ colorscheme monokai
 set nocompatible
 set backspace=indent,eol,start
 set ruler
-set nobackup 
+set nobackup
 set encoding=utf-8
 set scrolloff=10
 set backspace=2
@@ -20,7 +20,6 @@ set laststatus=2
 set t_Co=256
 set showcmd
 set autowrite
-set paste
 
 " tabs and indenting
 set tabstop=2
@@ -29,7 +28,7 @@ set expandtab
 set autoindent
 
 " searching
-set hlsearch 
+set hlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -55,19 +54,16 @@ command! C nohlsearch
 " Force write readonly files using sudo
 command! WS w !sudo tee %
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-  Plugin 'VundleVim/Vundle.vim'
-  Plugin 'scrooloose/nerdTree'
-  Plugin 'scrooloose/nerdcommenter'
-  Plugin 'rking/ag.vim'
-  Plugin 'itchyny/lightline.vim'
-  " Plugin 'vim-airline/vim-airline'
-  " Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'fatih/vim-go'
-  Plugin 'jiangmiao/auto-pairs'
-call vundle#end()
+" vim-plug plugin-manager
+call plug#begin('~/.vim/plugged')
+  Plug 'scrooloose/nerdTree'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'rking/ag.vim'
+  Plug 'itchyny/lightline.vim'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'fatih/vim-go'
+  Plug 'jiangmiao/auto-pairs'
+call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -108,8 +104,6 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif  
-
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
@@ -117,4 +111,3 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
