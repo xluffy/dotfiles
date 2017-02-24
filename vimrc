@@ -12,7 +12,7 @@ colorscheme monokai
 set nocompatible
 set backspace=indent,eol,start
 set ruler
-set nobackup
+set nobackup 
 set encoding=utf-8
 set scrolloff=10
 set backspace=2
@@ -28,7 +28,7 @@ set expandtab
 set autoindent
 
 " searching
-set hlsearch
+set hlsearch 
 set incsearch
 set ignorecase
 set smartcase
@@ -58,11 +58,15 @@ command! WS w !sudo tee %
 call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdTree'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'rking/ag.vim'
+  Plug 'mileszs/ack.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'fatih/vim-go'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'majutsushi/tagbar'
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'bling/vim-bufferline'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -111,3 +115,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
