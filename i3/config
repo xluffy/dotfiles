@@ -69,6 +69,9 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym Control+mod1+l exec i3lock-fancy
+bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/screenshot/'
+
 
 mode "resize" {
   bindsym j resize shrink width 10 px or 10 ppt
@@ -87,14 +90,19 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-assign [class="^google-chrome-stable$"] → 1
+assign [class="^chromium$"] → 1
 assign [class="^urxvt$"] → 2
 assign [class="^skype$"] → 3
 
 exec google-chrome-stable
 exec urxvt
 exec Skype
+exec --no-startup-id feh --bg-scale '/home/xluffy/relax/bg/wallhaven-55956.png'
+
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
 
 bar {
-  status_command i3status
+  status_command py3status -c ~/.config/i3/i3status.conf
 }
