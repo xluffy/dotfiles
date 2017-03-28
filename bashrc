@@ -6,9 +6,7 @@
 #[[ $- != *i* ]] && return
 #[[ -z "$TMUX" ]] && exec tmux
 
-cowsay "Welcome to sunshine ┏( ^o^)┛"
-
-#cmatrix -B
+shuf -n 1 /home/xluffy/workspace/cowsay-quote/quote.txt | cowsay
 
 Black='\e[0;30m' # Black
 Red='\e[0;31m' # Red
@@ -128,4 +126,7 @@ docker_ip() {
 
 docker_clean_container() {
   docker rm -f $(docker ps -qa)
+}
+docker_exec() {
+  docker exec -it "$1" /bin/bash
 }
