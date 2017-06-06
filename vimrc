@@ -67,6 +67,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'bling/vim-bufferline'
+  Plug 'Yggdroot/indentLine'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -118,3 +119,5 @@ let g:go_highlight_build_constraints = 1
 
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+let g:indentLine_color_term = 239
+let g:indentLine_char = '┆'
