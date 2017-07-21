@@ -1,0 +1,17 @@
+gshuf -n 1 /Users/xluffy/workspaces/cowsay-quote/quote.txt | cowsay
+
+docker_base() {
+  docker run --name "$1" -it -v ~/tmp:/root/tmp xluffy/base:6 /bin/bash
+}
+
+docker_ip() {
+  docker inspect --format='{{.NetworkSettings.IPAddress}}' "$1"
+}
+
+docker_clean_container() {
+  docker rm -f $(docker ps -qa)
+}
+
+docker_exec() {
+  docker exec -it "$1" /bin/bash
+}
