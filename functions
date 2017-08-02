@@ -12,6 +12,14 @@ docker_clean_container() {
   docker rm -f $(docker ps -qa)
 }
 
+docker_clean_images() {
+  docker rmi -f $(docker images | grep none  | awk '{print $3}')
+}
+
 docker_exec() {
-  docker exec -it "$1" /bin/bash
+  docker exec -u root -it "$1" /bin/bash
+}
+
+docker_exec_last() {
+  docker exec -u root -it $(docker ps -q | head -n 1) /bin/bash
 }
