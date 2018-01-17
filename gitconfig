@@ -8,8 +8,8 @@ diff = auto
 status = auto
 
 [alias]
-pu = push
-pl = pull
+p = push
+pp = pull
 ci = commit
 di = diff --color-words
 st = status -uno
