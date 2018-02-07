@@ -8,6 +8,7 @@ diff = auto
 status = auto
 
 [alias]
+a = add
 p = push
 pp = pull
 ci = commit
