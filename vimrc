@@ -7,6 +7,7 @@ filetype plugin on
 filetype indent on
 
 colorscheme monokai
+set background=dark
 
 " General Settings "
 set nocompatible
@@ -68,11 +69,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'bling/vim-bufferline'
   Plug 'Yggdroot/indentLine'
+  Plug 'JamshedVesuna/vim-markdown-preview'
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'terryma/vim-expand-region'
+  Plug 'srstevenson/vim-picker'
+  Plug 'jhawthorn/fzy'
 call plug#end()
 
-map <C-n> :NERDTreeToggle<CR>
-
-" let g:airline_theme='molokai'
+map <leader>n :NERDTreeToggle<CR>
 
 let g:lightline = {
       \ 'colorscheme': 'solarized',
@@ -83,10 +87,15 @@ let g:lightline = {
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
 
+
 " map leader
 :nnoremap <leader>d dd
 :nnoremap <leader>g gg
 :nnoremap <leader>o :CtrlP<CR>
+:nnoremap <Leader>w :w<CR>
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -121,3 +130,14 @@ let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
+let vim_markdown_preview_github=1
+
+nmap <unique> <leader>pe <Plug>PickerEdit
+nmap <unique> <leader>ps <Plug>PickerSplit
+nmap <unique> <leader>pt <Plug>PickerTabedit
+nmap <unique> <leader>pv <Plug>PickerVsplit
+nmap <unique> <leader>pb <Plug>PickerBuffer
+nmap <unique> <leader>p] <Plug>PickerTag
+nmap <unique> <leader>pw <Plug>PickerStag
+nmap <unique> <leader>po <Plug>PickerBufferTag
+nmap <unique> <leader>ph <Plug>PickerHelp
