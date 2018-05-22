@@ -74,6 +74,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-expand-region'
   Plug 'srstevenson/vim-picker'
   Plug 'jhawthorn/fzy'
+  Plug 'elzr/vim-json'
+  Plug 'tpope/vim-surround'
+  Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
+  Plug 'vim-syntastic/syntastic'
+  Plug 'nvie/vim-flake8'
 call plug#end()
 
 map <leader>n :NERDTreeToggle<CR>
@@ -93,6 +98,13 @@ let g:lightline = {
 :nnoremap <leader>g gg
 :nnoremap <leader>o :CtrlP<CR>
 :nnoremap <Leader>w :w<CR>
+
+" Disableing default keys to learn the hjkl
+
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -141,3 +153,8 @@ nmap <unique> <leader>p] <Plug>PickerTag
 nmap <unique> <leader>pw <Plug>PickerStag
 nmap <unique> <leader>po <Plug>PickerBufferTag
 nmap <unique> <leader>ph <Plug>PickerHelp
+
+let g:shfmt_extra_args = '-i 2'
+let python_highlight_all=1
+
+map <leader><Enter> :w<CR>:!python3 %<CR>
