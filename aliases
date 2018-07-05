@@ -7,6 +7,8 @@ alias ping='ping -c 5'
 alias pong='ping google.com.vn'
 alias p='curl httpbin.org/ip'
 alias pv='pv -peafbt'
+alias nf='neofetch'
+alias cd='cdl'
 
 # Comment of PV
 # - p: progress bar

@@ -23,3 +23,7 @@ docker_exec() {
 docker_exec_last() {
   docker exec -u root -it $(docker ps -q | head -n 1) /bin/bash
 }
+
+cdl() {
+  cd $1 && ls -larht .
+}
