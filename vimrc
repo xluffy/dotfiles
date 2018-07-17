@@ -25,6 +25,7 @@ set autowrite
 " tabs and indenting
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 
@@ -42,6 +43,9 @@ set colorcolumn=+1
 set number
 set numberwidth=1
 
+" system clipboard
+set clipboard=unnamed
+
 " Make these commonly mistyped commands still work
 command! WQ wq
 command! Wq wq
@@ -54,6 +58,7 @@ command! C nohlsearch
 
 " Force write readonly files using sudo
 command! WS w !sudo tee %
+nnoremap ; :
 
 " vim-plug plugin-manager
 call plug#begin('~/.vim/plugged')
@@ -62,7 +67,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'jiangmiao/auto-pairs'
   Plug 'majutsushi/tagbar'
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
@@ -74,14 +78,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-expand-region'
   Plug 'srstevenson/vim-picker'
   Plug 'jhawthorn/fzy'
-  Plug 'elzr/vim-json'
-  Plug 'tpope/vim-surround'
-  Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
-  Plug 'vim-syntastic/syntastic'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'nvie/vim-flake8'
+  Plug 'w0rp/ale'
+  Plug 'majutsushi/tagbar'
 call plug#end()
 
-map <leader>n :NERDTreeToggle<CR>
+nmap  <leader>n :NERDTreeToggle<CR>
 
 let g:lightline = {
       \ 'colorscheme': 'solarized',
@@ -154,7 +157,30 @@ nmap <unique> <leader>pw <Plug>PickerStag
 nmap <unique> <leader>po <Plug>PickerBufferTag
 nmap <unique> <leader>ph <Plug>PickerHelp
 
-let g:shfmt_extra_args = '-i 2'
-let python_highlight_all=1
-
 map <leader><Enter> :w<CR>:!python3 %<CR>
+map <F8> :w <CR> :!g++ % -o %< && ./%< <CR>
+let python_highlight_all=1
+let g:airline#extensions#ale#enabled = 1
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+let g:ale_fixers = {
+  \ 'python': ['flake8'],
+  \}
+
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_set_highlights = 0
+let g:airline#extensions#ale#enabled = 1
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
+
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
