@@ -9,6 +9,7 @@ alias p='curl httpbin.org/ip'
 alias pv='pv -peafbt'
 alias nf='neofetch'
 alias bcat='bat'
+alias h='python3 -m http.server'
 
 # Comment of PV
 # - p: progress bar
@@ -22,6 +23,7 @@ alias date='date "+%A, %B %d, %Y [%T]"'
 alias vi='vim'
 alias times='sudo ntpdate pool.ntp.org'
 alias r='openssl rand -base64 15'
+alias rr='openssl rand -base64 128 | tr "\n" " "  | sed "s/ //g" | cut -c1-128'
 
 # privileged access
 if [ $UID -ne 0 ]; then
