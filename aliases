@@ -10,6 +10,8 @@ alias pv='pv -peafbt'
 alias nf='neofetch'
 alias bcat='bat'
 alias h='python3 -m http.server'
+alias vim='emacs -nw'
+alias ssh-keygen='ssh-keygen -t rsa -b 4096'
 
 # Comment of PV
 # - p: progress bar
