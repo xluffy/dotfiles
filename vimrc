@@ -147,15 +147,15 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 let vim_markdown_preview_github=1
 
-nmap <unique> <leader>pe <Plug>PickerEdit
-nmap <unique> <leader>ps <Plug>PickerSplit
-nmap <unique> <leader>pt <Plug>PickerTabedit
-nmap <unique> <leader>pv <Plug>PickerVsplit
-nmap <unique> <leader>pb <Plug>PickerBuffer
-nmap <unique> <leader>p] <Plug>PickerTag
-nmap <unique> <leader>pw <Plug>PickerStag
-nmap <unique> <leader>po <Plug>PickerBufferTag
-nmap <unique> <leader>ph <Plug>PickerHelp
+nmap <unique> <leader>pe <Plug>(PickerEdit)
+nmap <unique> <leader>ps <Plug>(PickerSplit)
+nmap <unique> <leader>pt <Plug>(PickerTabedit)
+nmap <unique> <leader>pv <Plug>(PickerVsplit)
+nmap <unique> <leader>pb <Plug>(PickerBuffer)
+nmap <unique> <leader>p] <Plug>(PickerTag)
+nmap <unique> <leader>pw <Plug>(PickerStag)
+nmap <unique> <leader>po <Plug>(PickerBufferTag)
+nmap <unique> <leader>ph <Plug>(PickerHelp)
 
 map <leader><Enter> :w<CR>:!python3 %<CR>
 map <F8> :w <CR> :!g++ % -o %< && ./%< <CR>
