@@ -1,4 +1,10 @@
-gshuf -n 1 /Users/xluffy/workspaces/cowsay-quote/quote.txt | cowsay
+rl /Users/xluffy/workspaces/cowsay-quote/quote.txt | head -n 1 | cowsay
+
+_log() {
+  printf "\x1B[2;32m"
+  echo "[LOG]" "[$(date)]:" "$*"
+  printf "\x1B[0m"
+}
 
 docker_base() {
   docker run --name "$1" -it -v ~/tmp:/root/tmp xluffy/base:6 /bin/bash
@@ -13,7 +19,12 @@ docker_clean_container() {
 }
 
 docker_clean_images() {
-  docker rmi -f $(docker images | grep none  | awk '{print $3}')
+  docker rmi -f $(docker images | grep none | awk '{print $3}')
+}
+
+docker_clean_last_images() {
+  docker rm -f $(docker ps -q | head -n 1)
+  docker rmi -f $(docker images | grep none | head -n 1)
 }
 
 docker_exec() {
@@ -24,6 +35,18 @@ docker_exec_last() {
   docker exec -u root -it $(docker ps -q | head -n 1) /bin/bash
 }
 
-cdl() {
-  cd $1 && ls -larht .
+ssh-keygen() {
+  ssh-keygen -t rsa -b 4096 -C $1
+}
+
+srm() {
+  read -p "Are you sure for delete $1? (y/n) " yn
+
+  if [ "${yn}" == "y" ]; then
+    rm -Pfv "$1"
+    _log "Secure deleted $1"
+  else
+    _log "Don't delete"
+  fi
+
 }
