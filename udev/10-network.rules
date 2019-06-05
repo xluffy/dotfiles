@@ -1,2 +1,0 @@
-SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="f0:de:f1:9b:50:9c", NAME="net0"
-SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="a0:88:b4:98:c4:70", NAME="wf0"
