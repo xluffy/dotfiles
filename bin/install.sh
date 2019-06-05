@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Purpose: Install brew on mac osx
 # Author: xluffy
@@ -31,8 +31,31 @@ _i_brew() {
   brew upgrade --all
 }
 
+_i_pkgs() {
+  if [ ! -f ../Brewfile ]; then
+    _log "Can't exist Brewfile, please check"
+  fi
+
+  brew bundle install --file=../Brewfile
+}
+
+_config() {
+  local files=(aliases bash_profile bash_prompt bashrc exports functions gitconfig psqlrc tmux.conf vimrc)
+  local user
+  user=$(whoami)
+
+  for f in "${files[@]}"; do
+    if [ ! -f "${f}" ]; then
+      _log "Can't exist config"
+    fi
+    install --owner="${user}" --mode=0644 "${f}" "/Users/${user}/.${f}"
+  done
+}
+
 main() {
   _i_brew || _die "Can't install brew"
+  _i_pkgs || _die "Can't install packages"
+  _config || _die "Can't config"
 }
 
 main "$@"
