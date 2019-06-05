@@ -21,6 +21,7 @@ set laststatus=2
 set t_Co=256
 set showcmd
 set autowrite
+set autoread
 
 " tabs and indenting
 set tabstop=2
@@ -36,7 +37,7 @@ set ignorecase
 set smartcase
 
 " Make it obvious where 80 characters is
-set textwidth=95
+set textwidth=120
 set colorcolumn=+1
 
 " Numbers
@@ -73,28 +74,48 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'bling/vim-bufferline'
   Plug 'Yggdroot/indentLine'
-  Plug 'JamshedVesuna/vim-markdown-preview'
   Plug 'vim-ruby/vim-ruby'
   Plug 'terryma/vim-expand-region'
   Plug 'srstevenson/vim-picker'
   Plug 'jhawthorn/fzy'
-  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-surround'
   Plug 'nvie/vim-flake8'
   Plug 'w0rp/ale'
   Plug 'majutsushi/tagbar'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'chr4/nginx.vim'
+  Plug 'tpope/vim-rails'
+  Plug 'hashivim/vim-terraform'
+  Plug 'juliosueiras/vim-terraform-completion'
+  Plug 'benmills/vimux'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'mhinz/vim-startify'
+  Plug 'craigemery/vim-autotag'
 call plug#end()
 
 nmap  <leader>n :NERDTreeToggle<CR>
 
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"x":""}',
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ]
       \ },
       \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ 'subseparator': { 'left': '|', 'right': '|' },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
       \ }
 
+let g:airline#extensions#ale#enabled = 1
+
+" map jj to ESC
+imap jj <Esc>
 
 " map leader
 :nnoremap <leader>d dd
@@ -147,40 +168,73 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 let vim_markdown_preview_github=1
 
-nmap <unique> <leader>pe <Plug>PickerEdit
-nmap <unique> <leader>ps <Plug>PickerSplit
-nmap <unique> <leader>pt <Plug>PickerTabedit
-nmap <unique> <leader>pv <Plug>PickerVsplit
-nmap <unique> <leader>pb <Plug>PickerBuffer
-nmap <unique> <leader>p] <Plug>PickerTag
-nmap <unique> <leader>pw <Plug>PickerStag
-nmap <unique> <leader>po <Plug>PickerBufferTag
-nmap <unique> <leader>ph <Plug>PickerHelp
-
 map <leader><Enter> :w<CR>:!python3 %<CR>
 map <F8> :w <CR> :!g++ % -o %< && ./%< <CR>
 let python_highlight_all=1
 let g:airline#extensions#ale#enabled = 1
 
 au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+      \ set tabstop=4 |
+      \ set softtabstop=4 |
+      \ set shiftwidth=4 |
+      \ set textwidth=79 |
+      \ set expandtab |
+      \ set autoindent |
+      \ set fileformat=unix
 
 let g:ale_fixers = {
-  \ 'python': ['flake8'],
-  \}
+      \ 'python': ['flake8'],
+      \ 'javascript': ['eslint'],
+      \ 'ruby': ['rubocop'],
+      \ 'terraform': ['tflint'],
+      \ 'yaml': ['prettier']
+      \}
 
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_set_highlights = 0
-let g:airline#extensions#ale#enabled = 1
+
+let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
+
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
+
+" terraform
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_remap_spacebar=1
+autocmd BufEnter *.tf* colorscheme monokai
+
+" Tab for cycling buffers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" Run the current file with rspec
+map <Leader>vr :call VimuxRunCommand("clear; pwd")<CR>
+
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>vq :VimuxCloseRunner<CR>
+
+" Interrupt any command running in the runner pane
+map <Leader>vx :VimuxInterruptRunner<CR>
+
+" Zoom the runner pane (use <bind-key> z to restore runner pane)
+map <Leader>vz :call VimuxZoomRunner()<CR>
+
+map <F2> :set paste <ENTER>
+map <F3> :set nopaste <ENTER>
+
+" Support Jenkinsfile syntax
+au BufNewFile,BufRead Jenkinsfile set filetype=groovy
