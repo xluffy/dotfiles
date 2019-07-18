@@ -2,6 +2,7 @@
 PATH=/usr/local/bin:$PATH
 PATH=$HOME/bin:$PATH:$HOME/go/bin
 PATH=$PATH:/Users/xluffy/Library/Python/3.6/bin
+PATH=$PATH:/Users/xluffy/.cargo/bin
 GOPATH=$HOME/go
 export PATH
 
@@ -27,8 +28,9 @@ if [ -f '/Users/xluffy/5source/google-cloud-sdk/completion.bash.inc' ]; then
   source '/Users/xluffy/5source/google-cloud-sdk/completion.bash.inc'; 
 fi
 
-sscp() {
-  scp ubuntu@"$1"
-}
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-eval "$(pyenv init -)"
+eval "$(direnv hook bash)"
+export PATH="$HOME/.cargo/bin:$PATH"
