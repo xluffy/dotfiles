@@ -92,6 +92,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim'
   Plug 'mhinz/vim-startify'
   Plug 'craigemery/vim-autotag'
+  Plug 'racer-rust/vim-racer'
+  Plug 'rust-lang/rust.vim'
+  Plug 'pearofducks/ansible-vim'
+  Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+  " Align terraform code
+  Plug 'godlygeek/tabular'
 call plug#end()
 
 nmap  <leader>n :NERDTreeToggle<CR>
@@ -186,7 +192,7 @@ let g:ale_fixers = {
       \ 'python': ['flake8'],
       \ 'javascript': ['eslint'],
       \ 'ruby': ['rubocop'],
-      \ 'terraform': ['tflint'],
+      \ 'terraform': ['tflint', 'terraform'],
       \ 'yaml': ['prettier']
       \}
 
@@ -238,3 +244,6 @@ map <F3> :set nopaste <ENTER>
 
 " Support Jenkinsfile syntax
 au BufNewFile,BufRead Jenkinsfile set filetype=groovy
+
+" python-mode
+let g:pymode_python = 'python3'
