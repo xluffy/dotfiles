@@ -103,6 +103,8 @@ brew "wakeonlan"
 brew "wget"
 brew "yarn", args: ["without-node"]
 brew "zlib"
+brew "tldr"
+brew "rg"
 cask "aws-vault"
 cask "emacs"
 cask "java"
