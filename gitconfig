@@ -1,43 +1,60 @@
 [user]
-name = xluffy
-email = xquang.foss@gmail.com
+  name = xluffy
+  email = xquang.foss@gmail.com
 
 [color]
-branch = auto
-diff = auto
-status = auto
+  branch = auto
+  diff = auto
+  status = auto
+  ui = true
 
 [alias]
-a = add
-p = push
-pp = pull
-ci = commit
-di = diff --color-words
-st = status -uno
-stt = status
-co = checkout
-br = branch
-lg = log -p
-logf = log --follow
-lol = log --graph --decorate --pretty=oneline --abbrev-commit
-lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-ls = ls-files
-mg = merge
+  a = add
+  p = push
+  pp = pull
+  ci = commit
+  di = diff --color-words
+  st = status -uno
+  stt = status
+  co = checkout
+  br = branch
+  lg = log -p
+  logf = log --follow
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+  mg = merge
 
 [color "branch"]
-current = yellow
-local = magenta
-remote = cyan
+  current = yellow
+  local = magenta
+  remote = cyan
 
 [color "diff"]
-meta = yellow bold
-frag = magenta bold
-old = red bold
-new = green bold
+  meta = 11
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  commit = yellow bold
+  whitespace = red reverse
 
 [color "status"]
-added = yellow
-changed = green
-untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
+
 [push]
-default = matching
+  default = current
+
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[core]
+  pager = diff-so-fancy | less --tabs=2 -RFX
