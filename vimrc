@@ -166,7 +166,6 @@ nnoremap <leader>ap :ALEPreviousWrap<CR>
 :nnoremap <Leader>w :w<CR>
 
 " Disableing default keys to learn the hjkl
-
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -196,7 +195,6 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:indentLine_enabled = 1
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
-let vim_markdown_preview_github=1
 
 map <leader><Enter> :w<CR>:!python3 %<CR>
 map <F8> :w <CR> :!g++ % -o %< && ./%< <CR>
@@ -213,9 +211,6 @@ autocmd BufEnter *.tf* colorscheme monokai
 " Tab for cycling buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
-
-map <F2> :set paste <ENTER>
-map <F3> :set nopaste <ENTER>
 
 " Support Jenkinsfile syntax
 au BufNewFile,BufRead Jenkinsfile set filetype=groovy
