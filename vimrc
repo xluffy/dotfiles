@@ -102,6 +102,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'mbbill/undotree'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'ConradIrwin/vim-bracketed-paste'
+  Plug 'jgdavey/tslime.vim'
+  Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 nmap <leader>n :NERDTreeToggle<CR>
@@ -228,3 +230,5 @@ nnoremap <silent> <leader>f :FZF<CR>
 nnoremap <silent> <leader>F :FZF ~<CR>
 nmap <Leader>/ :Rg<Space>
 nmap <Leader>l :Limelight!!<CR>
+
+map <leader>bo :call Send_to_Tmux("rubocop ". expand('%:p') ."\n")<CR>
