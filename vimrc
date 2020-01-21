@@ -5,7 +5,6 @@ let mapleader = " "
 syntax on
 filetype plugin on
 filetype indent on
-
 colorscheme monokai
 set background=dark
 
@@ -19,7 +18,9 @@ set nocompatible
 set backspace=indent,eol,start
 set ruler
 set nobackup
+set ffs=unix
 set encoding=utf-8
+set fileencoding=utf-8
 set scrolloff=10
 set backspace=2
 set laststatus=2
@@ -143,21 +144,24 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = {
       \ 'python': ['flake8', 'pylint'],
       \ 'javascript': ['eslint'],
-      \ 'ruby': ['standardrb', 'rubocop'],
+      \ 'ruby': ['rubocop'],
       \ 'terraform': ['tflint', 'terraform'],
       \ 'yaml': ['prettier']
       \}
 
 let g:ale_fixers = {
-      \    'ruby': ['standardrb'],
+      \    'ruby': ['rubocop'],
       \}
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 let g:ale_sign_error = 'ⓧ'
 let g:ale_sign_warning = '⚠'
 let g:ale_set_highlights = 0
 
 let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
+
+let g:ale_ruby_ruby_executable = 'ruby'
+let g:ale_ruby_rubocop_executable = 'bundle'
 
 nnoremap <leader>an :ALENextWrap<CR>
 nnoremap <leader>ap :ALEPreviousWrap<CR>
