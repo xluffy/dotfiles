@@ -1,11 +1,12 @@
 "vim config by @xluffy
 " Leader
 let mapleader = " "
+let g:dracula_italic = 0
 
 syntax on
 filetype plugin on
 filetype indent on
-colorscheme monokai
+colorscheme dracula
 set background=dark
 
 set termguicolors
@@ -105,6 +106,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'ConradIrwin/vim-bracketed-paste'
   Plug 'jgdavey/tslime.vim'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'wakatime/vim-wakatime'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'brooth/far.vim'
+  Plug 'tomtom/tcomment_vim'
 call plug#end()
 
 nmap <leader>n :NERDTreeToggle<CR>
@@ -143,14 +149,17 @@ let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {
       \ 'python': ['flake8', 'pylint'],
-      \ 'javascript': ['eslint'],
+      \ 'javascript': ['eslint', 'prettier'],
+      \ 'css': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'terraform': ['tflint', 'terraform'],
       \ 'yaml': ['prettier']
       \}
 
 let g:ale_fixers = {
-      \    'ruby': ['rubocop'],
+      \ 'ruby': ['rubocop'],
+      \ 'javascript': ['eslint', 'prettier'],
+      \ 'css': ['prettier'],
       \}
 let g:ale_fix_on_save = 0
 
@@ -212,11 +221,12 @@ let g:terraform_fold_sections=0
 let g:terraform_remap_spacebar=1
 let g:terraform_completion_keys = 1
 
-autocmd BufEnter *.tf* colorscheme monokai
+autocmd BufEnter *.tf* colorscheme dracula
 
 " Tab for cycling buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+nnoremap <C-X> :bdelete<CR>
 
 " Support Jenkinsfile syntax
 au BufNewFile,BufRead Jenkinsfile set filetype=groovy
@@ -236,3 +246,14 @@ nmap <Leader>/ :Rg<Space>
 nmap <Leader>l :Limelight!!<CR>
 
 map <leader>bo :call Send_to_Tmux("rubocop ". expand('%:p') ."\n")<CR>
+" autocmd VimEnter * Limelight
+" Far
+set lazyredraw
+set regexpengine=1
+" shortcut for far.vim find
+nnoremap <silent> <Find-Shortcut>  :Farf<cr>
+vnoremap <silent> <Find-Shortcut>  :Farf<cr>
+
+" shortcut for far.vim replace
+nnoremap <silent> <Replace-Shortcut>  :Farr<cr>
+vnoremap <silent> <Replace-Shortcut>  :Farr<cr>
