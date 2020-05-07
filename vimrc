@@ -29,6 +29,7 @@ set t_Co=256
 set showcmd
 set autowrite
 set autoread
+set showtabline=2
 
 " tabs and indenting
 set tabstop=2
@@ -114,7 +115,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'brooth/far.vim'
   Plug 'tomtom/tcomment_vim'
-  Plug 'ap/vim-buftabline'
+  " Plug 'ap/vim-buftabline'
+  Plug 'mengelbrecht/lightline-bufferline'
 call plug#end()
 
 nmap <leader>n :NERDTreeToggle<CR>
@@ -262,3 +264,12 @@ vnoremap <silent> <Find-Shortcut>  :Farf<cr>
 " shortcut for far.vim replace
 nnoremap <silent> <Replace-Shortcut>  :Farr<cr>
 vnoremap <silent> <Replace-Shortcut>  :Farr<cr>
+
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
+
+let g:lightline                  = {}
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
