@@ -58,6 +58,9 @@ set clipboard=unnamed
 set undodir=~/.vim/undodir
 set undofile
 
+" Buffer
+set hidden
+
 " Make these commonly mistyped commands still work
 command! WQ wq
 command! Wq wq
@@ -82,9 +85,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'jhawthorn/fzy'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
   Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'junegunn/limelight.vim'
   Plug 'nvie/vim-flake8'
   Plug 'w0rp/ale'
-  Plug 'junegunn/vim-easy-align'
   Plug 'hashivim/vim-terraform'
   Plug 'juliosueiras/vim-terraform-completion'
   Plug 'pearofducks/ansible-vim'
@@ -94,13 +98,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-commentary'
   Plug 'brooth/far.vim'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'tpope/vim-rails'
   Plug 'vim-ruby/vim-ruby'
   Plug 'dhruvasagar/vim-zoom'
-  Plug 'junegunn/limelight.vim'
-  Plug 'tpope/vim-commentary'
   Plug 'mbbill/undotree'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'ConradIrwin/vim-bracketed-paste'
@@ -111,6 +114,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'brooth/far.vim'
   Plug 'tomtom/tcomment_vim'
+  Plug 'ap/vim-buftabline'
 call plug#end()
 
 nmap <leader>n :NERDTreeToggle<CR>
@@ -241,7 +245,8 @@ let g:strip_whitespace_on_save=1
 let g:AutoPairsMultilineClose = 0
 
 nnoremap <silent> <leader>f :FZF<CR>
-nnoremap <silent> <leader>F :FZF ~<CR>
+nnoremap <silent> <leader>F :FZF ../<CR>
+
 nmap <Leader>/ :Rg<Space>
 nmap <Leader>l :Limelight!!<CR>
 
