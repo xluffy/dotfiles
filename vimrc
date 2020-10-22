@@ -6,10 +6,11 @@ let g:dracula_italic = 0
 syntax on
 filetype plugin on
 filetype indent on
-colorscheme dracula
 set background=dark
 
+colorscheme dracula
 set termguicolors
+
 " This is only necessary if you use "set termguicolors".
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -115,8 +116,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'brooth/far.vim'
   Plug 'tomtom/tcomment_vim'
-  " Plug 'ap/vim-buftabline'
+  Plug 'majutsushi/tagbar'
   Plug 'mengelbrecht/lightline-bufferline'
+  Plug 'mitsuhiko/vim-jinja'
+  Plug 'mhartington/oceanic-next'
+  Plug 'honza/vim-snippets'
+  Plug 'SirVer/ultisnips'
+  Plug 't9md/vim-choosewin'
+  Plug 'airblade/vim-rooter'
 call plug#end()
 
 nmap <leader>n :NERDTreeToggle<CR>
@@ -159,13 +166,19 @@ let g:ale_linters = {
       \ 'css': ['prettier'],
       \ 'ruby': ['rubocop'],
       \ 'terraform': ['tflint', 'terraform'],
-      \ 'yaml': ['prettier']
+      \ 'yaml': ['prettier'],
+      \ 'haml': ['hamllint'],
+      \ 'sass': ['sasslint'],
+      \ 'lua': ['luacheck']
       \}
 
 let g:ale_fixers = {
       \ 'ruby': ['rubocop'],
       \ 'javascript': ['eslint', 'prettier'],
       \ 'css': ['prettier'],
+      \ 'haml': ['hamllint'],
+      \ 'sass': ['sasslint'],
+      \ 'lua': ['luacheck']
       \}
 let g:ale_fix_on_save = 0
 
@@ -186,11 +199,26 @@ nnoremap <leader>ap :ALEPreviousWrap<CR>
 :nnoremap <leader>g gg
 :nnoremap <Leader>w :w<CR>
 
-" Disableing default keys to learn the hjkl
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+" Remove newbie crutches in Command Mode
+cnoremap <Down> <Nop>
+cnoremap <Left> <Nop>
+cnoremap <Right> <Nop>
+cnoremap <Up> <Nop>
+" Remove newbie crutches in Insert Mode
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+" Remove newbie crutches in Normal Mode
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+" Remove newbie crutches in Visual Mode
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -273,3 +301,14 @@ let g:lightline                  = {}
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+nmap <Leader>t :TagbarToggle<CR>
+let g:tagbar_ctags_bin = '/usr/local/opt/ctags/bin/ctags'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+nmap <Leader>- <Plug>(choosewin)
+" if you want to use overlay feature
+let g:choosewin_overlay_enable = 1
