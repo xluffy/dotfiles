@@ -313,3 +313,4 @@ nmap <Leader>- <Plug>(choosewin)
 " if you want to use overlay feature
 let g:choosewin_overlay_enable = 1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+inoremap jk <ESC>
