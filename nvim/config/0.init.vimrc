@@ -20,8 +20,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'prabirshrestha/vim-lsp'
   Plug 'terryma/vim-expand-region'
   Plug 'dracula/vim', { 'as': 'dracula' }
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'lighttiger2505/deoplete-vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'hashivim/vim-terraform'
+  " Plug 'prabirshrestha/vim-lsp'
+  " Plug 'Shougo/deoplete.nvim'
+  " Plug 'lighttiger2505/deoplete-vim-lsp'
+  " Plug 'mattn/vim-lsp-settings'
 call plug#end()

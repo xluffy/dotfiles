@@ -47,4 +47,14 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " if you want to use overlay feature
 let g:choosewin_overlay_enable = 1
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+" FZF config
+let g:fzf_layout = { 'window': {
+      \ 'width': 0.9,
+      \ 'height': 0.7,
+      \ 'highlight': 'Comment',
+      \ 'rounded': v:false } }
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+autocmd BufEnter *.tf* colorscheme dracula
