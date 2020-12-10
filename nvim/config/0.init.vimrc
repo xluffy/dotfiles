@@ -17,11 +17,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'ConradIrwin/vim-bracketed-paste'
   Plug 'mengelbrecht/lightline-bufferline'
-  Plug 'prabirshrestha/vim-lsp'
   Plug 'terryma/vim-expand-region'
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'vim-ruby/vim-ruby'
+  " Plug 'vim-ruby/vim-ruby'
   Plug 'hashivim/vim-terraform'
   " Plug 'prabirshrestha/vim-lsp'
   " Plug 'Shougo/deoplete.nvim'
