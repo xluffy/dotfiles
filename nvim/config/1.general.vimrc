@@ -32,6 +32,10 @@ set autowrite
 set autoread
 set showtabline=2
 
+" Fold
+set foldmethod=syntax
+set foldlevel=4
+
 " tabs and indenting
 set tabstop=2
 set shiftwidth=2

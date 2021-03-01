@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-expand-region'
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'dense-analysis/ale'
   " Plug 'vim-ruby/vim-ruby'
   Plug 'hashivim/vim-terraform'
   " Plug 'prabirshrestha/vim-lsp'
