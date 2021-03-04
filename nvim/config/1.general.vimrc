@@ -8,7 +8,8 @@ filetype plugin on
 filetype indent on
 set background=dark
 
-colorscheme dracula
+"colorscheme dracula
+colorscheme OceanicNext
 set termguicolors
 
 " This is only necessary if you use "set termguicolors".

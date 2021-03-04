@@ -5,6 +5,12 @@ nnoremap ; :
 :nnoremap <leader>g gg
 :nnoremap <Leader>w :w<CR>
 
+" Remove newbie crutches in Command Mode
+" cnoremap <Down> <Nop>
+" cnoremap <Left> <Nop>
+" cnoremap <Right> <Nop>
+" cnoremap <Up> <Nop>
+
 " Remove newbie crutches in Insert Mode
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>

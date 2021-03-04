@@ -34,7 +34,6 @@ let g:strip_whitespace_on_save=1
 " Autopair
 let g:AutoPairsMultilineClose = 0
 
-
 let g:lightline#bufferline#show_number  = 1
 let g:lightline#bufferline#shorten_path = 0
 let g:lightline#bufferline#unnamed      = '[No Name]'
@@ -44,9 +43,12 @@ let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
 
 " if you want to use overlay feature
 let g:choosewin_overlay_enable = 1
+
 " FZF config
 let g:fzf_layout = { 'window': {
       \ 'width': 0.9,

@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'
   " Plug 'vim-ruby/vim-ruby'
   Plug 'hashivim/vim-terraform'
+  Plug 'mhartington/oceanic-next'
   " Plug 'prabirshrestha/vim-lsp'
   " Plug 'Shougo/deoplete.nvim'
   " Plug 'lighttiger2505/deoplete-vim-lsp'
