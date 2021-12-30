@@ -1,4 +1,9 @@
-export EDITOR="vim"
-export HISTTIMEFORMAT="%F %T "
+# Default program
+export BROWSER="microsoft-edge-stable"
+export EDITOR="nvim"
+
+# add this configuration to ~/.bashrc
+export HISTTIMEFORMAT="%F %T "                                                                                                                                        
 export HISTSIZE=999999
 export HISTFILESIZE=999999999
+export HISTCONTROL=ignoredups
