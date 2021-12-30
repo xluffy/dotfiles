@@ -10,7 +10,7 @@ for file in ~/.{bash_prompt,exports,aliases,functions}; do
   [ -r "${file}" ] && source "${file}"
 done
 
-shuf -n 1 /home/xluffy/code/cowsay-quote/quote.txt | cowsay
+shuf -n 1 /home/xluffy/code/dotfiles/quote.txt | cowsay
 
 # privileged access
 if [ $UID -ne 0 ]; then
