@@ -60,7 +60,8 @@
 [core]
   pager = diff-so-fancy | less --tabs=2 -RFX
 
-[gpg "x509"]
-  program = smimesign
 [gpg]
-  format = x509
+  program = gpg
+
+[commit]
+  gpgsign = true
