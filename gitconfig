@@ -1,6 +1,7 @@
 [user]
   name = xluffy
   email = hi.quang.gg@gmail.com
+  signingkey = 0907639662DC087D
 
 [color]
   branch = auto
@@ -58,3 +59,8 @@
 
 [core]
   pager = diff-so-fancy | less --tabs=2 -RFX
+
+[gpg "x509"]
+  program = smimesign
+[gpg]
+  format = x509
