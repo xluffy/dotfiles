@@ -24,3 +24,4 @@ John is a man of focus, commitment, of sheer will.- Viggo Tarasov
 Programs must be written for people to read, and only incidentally for machines to execute. - Hal Abelson
 The answer to every question in software is ‘it depends. - Sandi Metz
 Nothing is faster than doing nothing. Nothing.
+To make error is human. To propagate error to all server in automatic way is #devops.
